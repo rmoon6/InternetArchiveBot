@@ -10,16 +10,16 @@ client = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'NewsBot logged in as {client.user}')
 
+@client.command()
+async def hello(ctx):
+    print(f'recieved a hello command')
+    await ctx.send('Hello, world!')
+
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Command not found.")
     else:
         raise error
-
-@client.command()
-async def hello(ctx):
-    print(f'recieved a hello command')
-    await ctx.send('Hello, world!')
 
 client.run(get_bot_token())

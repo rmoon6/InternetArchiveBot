@@ -1,11 +1,13 @@
-def get_bot_token():
+from typing import Dict
+
+def get_bot_token() -> str:
     return _read_properties_map()[_TOKEN_KEY]
 
 _PROPERTIES_FILE = "auth.properties"
 _TOKEN_KEY = "token"
 
-def _read_properties_map():
-    properties = {}
+def _read_properties_map() -> Dict[str, str]:
+    properties: Dict[str, str] = {}
     with open(_PROPERTIES_FILE, 'r') as file:
         for line in file:
             line = line.strip()

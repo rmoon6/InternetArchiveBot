@@ -2,7 +2,6 @@ import os
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-from url_archive_utils import get_latest_archive_url
 
 load_dotenv()
 

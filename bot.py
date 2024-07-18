@@ -31,8 +31,8 @@ def find_latest_archive_timestamp(url):
 async def on_ready():
     print(f'NewsBot logged in as {client.user}')
 
-@bot.command(name='paywall', help='Responds a link to Archive.org')
-async def get_archive_link(ctx, url, *args):
+@client.command()
+async def archive(ctx, url: str):
     timestamp = find_latest_archive_timestamp(url)
     response = f'https://web.archive.org/web/{timestamp}/{url}'
     await ctx.send(response)

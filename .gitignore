@@ -1,2 +1,3 @@
 auth.properties
 __pycache__/
+venv/

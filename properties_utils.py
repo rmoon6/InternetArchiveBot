@@ -1,7 +1,7 @@
 from typing import Dict
 
 def get_bot_token() -> str:
-    return _read_properties_map()[_TOKEN_KEY]
+    return os.getenv('DISCORD_BOT_TOKEN')
 
 _PROPERTIES_FILE = "auth.properties"
 _TOKEN_KEY = "token"

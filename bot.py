@@ -1,7 +1,10 @@
+import os
 import discord
 from discord.ext import commands
-from properties_utils import get_bot_token
+from dotenv import load_dotenv
 from url_archive_utils import get_latest_archive_url
+
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -21,5 +24,8 @@ async def on_command_error(ctx, error):
         await ctx.send("Command not found.")
     else:
         raise error
+
+def get_bot_token() -> str:
+    return os.getenv('DISCORD_BOT_TOKEN')
 
 client.run(get_bot_token())

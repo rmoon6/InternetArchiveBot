@@ -21,7 +21,7 @@ async def archive(ctx, url: str):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Command not found.")
+        await print("Command not found.")
     else:
         raise error
 
